@@ -26,6 +26,7 @@ code {
   margin-left: 30px;
   margin-right: 30px;
   font-size: 22px;
+  border-bottom: 10px solid black;
 }
 .color {
   background-color: lightblue;
@@ -36,16 +37,16 @@ code {
   font-size: 2px;
 }
 .color1 {
-  background-color: lightgreen;
-  color: lightgreen;
+  background-color: lightpink;
+  color: lightpink;
   width: 300px;
   height: 15px;
   margin-top: 60px;
   font-size: 2px;
 }
 .color2 {
-  background-color: lightpink;
-  color: lightpink;
+  background-color: lightgreen;
+  color: lightgreen;
   height: 15px;
   width: 300px;
   margin-top: 60px;
@@ -56,4 +57,9 @@ code {
 }
 .contentdiv {
   margin-top: 50px;
+}
+.graph {
+  margin-top: 50px;
+  height: 100px;
+  width: 800px;
 }

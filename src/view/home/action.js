@@ -5,7 +5,7 @@ export const fetchStats = () => {
     dispatch({ type: "STATS_FETCH_PENDING" });
 
     axios
-      .get("https://corona.lmao.ninja/all")
+      .get("https://corona.lmao.ninja/v2/all")
 
       .then((res) => {
         dispatch({ type: "STATS_FETCH_SUCCESS", stats: res.data });
@@ -20,7 +20,7 @@ export const fetchCounries = () => {
     dispatch({ type: "COUNTRIES_FETCH_PENDING" });
 
     axios
-      .get("https://corona.lmao.ninja/countries")
+      .get("https://corona.lmao.ninja/v2/countries")
 
       .then((res) => {
         dispatch({ type: "COUNTRIES_FETCH_SUCCESS", stats: res.data });
