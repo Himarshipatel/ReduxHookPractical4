@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStats, fetchCounries } from "./action";
+import { fetchCounries } from "./action";
 import { Images } from "../../components";
 import {
   Row,
@@ -16,23 +16,23 @@ import { Bar } from "react-chartjs-2";
 
 //import "bootstrap/dist/css/bootstrap.min.css";
 
-const Home = () => {
+const Home = ({ handleCountryChange }) => {
+  // this.state = {
+  //   data: [],
+  // };
   const dispatch = useDispatch();
-  const { loading, stats, handleCountryChange } = useSelector((state) => ({
-    loading: state.HomeReducers.loading,
-    stats: state.HomeReducers.stats,
+  const { loading, stats } = useSelector((state) => ({
+    loading: state.HomeReducers.countries.loading,
+    stats: state.HomeReducers.countries.stats,
   }));
 
   useEffect(() => {
     dispatch(fetchCounries());
-    dispatch(fetchStats());
   }, [dispatch]);
   console.log(stats);
-
-  //  handleCountryChange = (e) => {
-  //
-  //  };
-
+  // handleCountryChange = () => {
+  //   this.setState({ data: event.target.value });
+  // };
   return (
     <>
       <Images />
@@ -95,7 +95,7 @@ const Home = () => {
                 </div>
               </Card>
 
-              {/* <Form>
+              <Form>
                 <FormGroup>
                   <Label for="exampleSelect">Select Country</Label>
                   <Input
@@ -103,7 +103,7 @@ const Home = () => {
                     name="select"
                     id="exampleSelect"
                     defaultValue=""
-                    onChange={(e) => handleCountryChange(e.target.value)}
+                    onChange={() => this.handleCountryChange()}
                   >
                     <option value="Global">Global</option>
                     {stats.map((country, i) => (
@@ -113,7 +113,7 @@ const Home = () => {
                     ))}
                   </Input>
                 </FormGroup>
-              </Form> */}
+              </Form>
 
               <Container className="graph">
                 <Bar
