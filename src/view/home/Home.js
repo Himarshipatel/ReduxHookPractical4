@@ -16,10 +16,12 @@ import { Bar } from "react-chartjs-2";
 
 //import "bootstrap/dist/css/bootstrap.min.css";
 
-const Home = ({ handleCountryChange }) => {
-  // this.state = {
-  //   data: [],
-  // };
+const Home = () => {
+  const onClickHandler = (option) => {
+    console.log(option);
+    // const value = .target.value;
+  };
+
   const dispatch = useDispatch();
   const { loading, stats } = useSelector((state) => ({
     loading: state.HomeReducers.countries.loading,
@@ -29,7 +31,7 @@ const Home = ({ handleCountryChange }) => {
   useEffect(() => {
     dispatch(fetchCounries());
   }, [dispatch]);
-  console.log(stats);
+
   // handleCountryChange = () => {
   //   this.setState({ data: event.target.value });
   // };
@@ -94,7 +96,6 @@ const Home = ({ handleCountryChange }) => {
                   <div className="color2"> h</div>
                 </div>
               </Card>
-
               <Form>
                 <FormGroup>
                   <Label for="exampleSelect">Select Country</Label>
@@ -103,11 +104,11 @@ const Home = ({ handleCountryChange }) => {
                     name="select"
                     id="exampleSelect"
                     defaultValue=""
-                    onChange={() => this.handleCountryChange()}
+                    onChange={(option) => onClickHandler(option)}
                   >
                     <option value="Global">Global</option>
                     {stats.map((country, i) => (
-                      <option key={i} value={country}>
+                      <option key={i} value={country.country}>
                         {country.country}
                       </option>
                     ))}
@@ -144,7 +145,7 @@ const Home = ({ handleCountryChange }) => {
                       {
                         label: "Infected",
                         backgroundColor: [
-                          " lightblue",
+                          "lightblue",
                           "lightgray",
                           "lightgray",
                           "lightpink",
