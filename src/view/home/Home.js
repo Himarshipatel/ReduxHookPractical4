@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCounries, fetchStats } from "./action";
-import { Images } from "../../components";
+import { fetchStats } from "./action";
+// import { Images } from "../../components";
 import { Row, Card, Container } from "reactstrap";
 import CountUp from "react-countup";
 import { Bar } from "react-chartjs-2";
@@ -14,14 +14,12 @@ const Home = () => {
   }));
 
   useEffect(() => {
-    dispatch(fetchCounries());
     dispatch(fetchStats());
   }, [dispatch]);
 
+  console.log(stats);
   return (
     <>
-      <Images />
-
       {loading ? (
         <div>loading....</div>
       ) : (

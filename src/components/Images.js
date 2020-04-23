@@ -2,11 +2,11 @@ import React from "react";
 
 function Images() {
   const url =
-    "https://raw.githubusercontent.com/adrianhajdin/project_corona_tracker/master/src/images/image.png";
+    "https://image.shutterstock.com/image-vector/vector-panda-icon-600w-380525938.jpg";
 
   return (
     <div className="img">
-      <img src={url} alt="" width={370} className="img" />
+      <img src={url} alt="" width={100} className="img" />
     </div>
   );
 }
