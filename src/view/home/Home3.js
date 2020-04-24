@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCounries } from "./action";
 import { Row } from "reactstrap";
 
-const Home1 = () => {
+const Home3 = () => {
   const dispatch = useDispatch();
   const { loading, stats } = useSelector((state) => ({
     loading: state.HomeReducers.loading,
@@ -22,11 +22,11 @@ const Home1 = () => {
         <>
           {stats !== null && (
             <Row className="row">
-              <ul>
+              <div id="content1">
                 {stats.articles.map((article, index) => (
-                  <li key={index}>{article.source.name}</li>
+                  <li key={index}>{article.description}</li>
                 ))}
-              </ul>
+              </div>
             </Row>
           )}
         </>
@@ -35,4 +35,4 @@ const Home1 = () => {
   );
 };
 
-export default Home1;
+export default Home3;

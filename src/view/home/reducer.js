@@ -4,12 +4,12 @@ const initialState = {
   message: null,
   stats: null,
 
-  sources: {
-    loading: false,
-    error: false,
-    message: null,
-    statss: null,
-  },
+  // articles: {
+  //   loading: false,
+  //   error: false,
+  //   message: null,
+  //   stats: null,
+  // },
 
   state: {
     loading: false,
@@ -48,32 +48,29 @@ const HomeReducers = (state = initialState, action) => {
     case "COUNTRIES_FETCH_PENDING":
       return {
         ...state,
-        sources: {
-          loading: true,
-          error: false,
-          message: null,
-          stats: null,
-        },
+
+        loading: true,
+        error: false,
+        message: null,
+        stats: null,
       };
     case "COUNTRIES_FETCH_SUCCESS":
       return {
         ...state,
-        sources: {
-          loading: false,
-          error: false,
-          message: null,
-          stats: action.stats,
-        },
+
+        loading: false,
+        error: false,
+        message: null,
+        stats: action.stats,
       };
     case "COUNTRIES_FETCH_FAILURE":
       return {
         ...state,
-        sources: {
-          loading: false,
-          error: true,
-          message: action.message,
-          stats: null,
-        },
+
+        loading: false,
+        error: true,
+        message: action.message,
+        stats: null,
       };
     default:
       return { ...state };
